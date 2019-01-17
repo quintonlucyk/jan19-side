@@ -1,22 +1,36 @@
 import React, { Component } from 'react';
-import Login from './Components/Login.js';
+import Login from './Pages/Login.js';
+import Home from './Pages/Home.js';
+import fire from './config/Fire';
 import './App.css';
-import firebase from "firebase";
-var config = {
-  apiKey: "AIzaSyAWaDqjYK6iuFAKa50p_EvyQK_TzyEHRj0",
-  authDomain: "jan19-side.firebaseapp.com",
-  databaseURL: "https://jan19-side.firebaseio.com",
-  projectId: "jan19-side",
-  storageBucket: "jan19-side.appspot.com",
-  messagingSenderId: "1079823639348"
-};
-firebase.initializeApp(config);
+
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      user:{},
+    }
+  }
+
+  componentDidMount(){
+    this.authListener();
+  }
+
+  authListener(){
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({user});
+      } else {
+        this.setState({user: null});
+      }
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Login />
+        {this.state.user ? (<Home />) : (<Login/>)}
       </div>
     );
   }
