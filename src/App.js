@@ -3,6 +3,11 @@ import Login from './Pages/Login.js';
 import Home from './Pages/Home.js';
 import fire from './config/Fire';
 import './App.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faPlusSquare)
 
 
 class App extends Component {
