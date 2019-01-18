@@ -4,6 +4,7 @@ import fire from '../config/Fire';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import DisplayContacts from '../SubPages/DisplayContacts';
 import NewContact from '../SubPages/NewContact';
+import Button from '@material-ui/core/Button';
 
 class Home extends Component {
   constructor(props){
@@ -32,8 +33,10 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <Button onClick={this.logout} variant="contained" color="primary">
+          Logout
+        </Button>
         {this.state.DisplayContacts ? (<DisplayContacts onNewContact={this.handleNewContact}/>) : (<NewContact onCancelContact={this.handleCancelContact}/>)}
-        <button onClick={this.logout}>Logout</button>
       </div>
     );
   }

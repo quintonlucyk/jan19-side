@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import firebase from "firebase";
 import fire from '../config/Fire';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+
 
 class NewContact extends Component {
   constructor(props){
@@ -42,27 +47,35 @@ class NewContact extends Component {
   render() {
     return (
       <div>
-        <p>NewContact</p>
+        <h2>NewContact</h2>
         <form onSubmit={this.handleAddition}>
+          <Grid className="grid">
           <label>
             Name:
-            <input type="text" name="name" onKeyUp={this.nameKeyUp} />
+            <Input type="text" name="name" onKeyUp={this.nameKeyUp} />
           </label>
+          </Grid>
+          <Grid className="grid">
           <label>
             Email:
-            <input type="text" name="email" onKeyUp={this.emailKeyUp} />
+            <Input type="text" name="email" onKeyUp={this.emailKeyUp} />
           </label>
+          </Grid>
+          <Grid className="grid">
           <label>
             Phone number:
-            <input type="text" name="phoneNumber" onKeyUp={this.phoneNumberKeyUp} />
+            <Input type="text" name="phoneNumber" onKeyUp={this.phoneNumberKeyUp} />
           </label>
+          </Grid>
+          <Grid className="grid">
           <label>
             Notes:
-            <textarea type="text" name="notes" onKeyUp={this.notesKeyUp} />
+            <TextField multiline={true} type="text" name="notes" onKeyUp={this.notesKeyUp} />
           </label>
-          <input type="submit" value="Submit" />
+          </Grid>
+          <Input type="submit" value="Submit" />
         </form>
-        <button onClick={this.cancelNewContact}>Cancel</button>
+        <Button onClick={this.cancelNewContact}>Cancel</Button>
       </div>
     );
   }

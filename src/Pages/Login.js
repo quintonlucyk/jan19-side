@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import firebase from "firebase";
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 class Login extends Component {
   constructor(props){
     super(props);
-
-    //this.emailKeyUp = this.emailKeyUp.bind(this);
+    this.state = {
+      email: "",
+      password: "",
+      error: false
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   emailKeyUp = (e) => {
@@ -19,26 +26,40 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert(errorCode + " : " + errorMessage);
-    });
+      if (error)
+        this.sendError();
+    }.bind(this));
+  };
+
+  sendError = () => {
+    this.setState({error: true});
   };
 
   render() {
     return (
-      <div>
+      <div className="login">
         <h1>Login:</h1>
         <form onSubmit={this.handleSubmit}>
+          <Grid className="grid">
           <label>
-            Email:
-            <input type="text" name="email" onKeyUp={this.emailKeyUp} />
+            <span className="label">Email:</span>
+            <Input type="text" name="email" onKeyUp={this.emailKeyUp} />
           </label>
+          </Grid>
+          <Grid className="grid">
           <label>
-            Password:
-            <input type="password" name="password" onKeyUp={this.passwordKeyUp} />
+            <span className="label">Password:</span>
+            <Input type="password" name="password" onKeyUp={this.passwordKeyUp} />
           </label>
-          <input type="submit" value="Submit" />
+          </Grid>
+          {this.state.error ? (
+            <Grid className="error">
+              The email/password you entered is incorrect.
+            </Grid>
+          ): null}
+          <Grid className="grid">
+          <Button type="submit" className="loginButton" >Login</Button>
+          </Grid>
         </form>
       </div>
     );
