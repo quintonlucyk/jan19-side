@@ -1,13 +1,13 @@
 {
-  "main.css": "/jan19-side/static/css/main.d66178ee.chunk.css",
-  "main.js": "/jan19-side/static/js/main.9c3fcedd.chunk.js",
-  "main.js.map": "/jan19-side/static/js/main.9c3fcedd.chunk.js.map",
-  "static/js/1.36938a8d.chunk.js": "/jan19-side/static/js/1.36938a8d.chunk.js",
-  "static/js/1.36938a8d.chunk.js.map": "/jan19-side/static/js/1.36938a8d.chunk.js.map",
+  "main.css": "/jan19-side/static/css/main.a660dae9.chunk.css",
+  "main.js": "/jan19-side/static/js/main.a53dbd3c.chunk.js",
+  "main.js.map": "/jan19-side/static/js/main.a53dbd3c.chunk.js.map",
+  "static/js/1.5c8f99db.chunk.js": "/jan19-side/static/js/1.5c8f99db.chunk.js",
+  "static/js/1.5c8f99db.chunk.js.map": "/jan19-side/static/js/1.5c8f99db.chunk.js.map",
   "runtime~main.js": "/jan19-side/static/js/runtime~main.6cb5ba90.js",
   "runtime~main.js.map": "/jan19-side/static/js/runtime~main.6cb5ba90.js.map",
-  "static/css/main.d66178ee.chunk.css.map": "/jan19-side/static/css/main.d66178ee.chunk.css.map",
+  "static/css/main.a660dae9.chunk.css.map": "/jan19-side/static/css/main.a660dae9.chunk.css.map",
   "index.html": "/jan19-side/index.html",
-  "precache-manifest.3dd38a5bb469adef69b02ac65bc37a40.js": "/jan19-side/precache-manifest.3dd38a5bb469adef69b02ac65bc37a40.js",
+  "precache-manifest.aadc84727555b25644e90b5aa8c841a5.js": "/jan19-side/precache-manifest.aadc84727555b25644e90b5aa8c841a5.js",
   "service-worker.js": "/jan19-side/service-worker.js"
 }
