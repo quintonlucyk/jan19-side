@@ -11,16 +11,26 @@ class Home extends Component {
     super(props);
     this.logout = this.logout.bind(this);
     this.state = {
-      DisplayContacts: true
+      DisplayContacts: true,
+      contacts: []
     };
     //this.emailKeyUp = this.emailKeyUp.bind(this);
     //this.handleNewContact = this.handleNewContact.bind(this);
     //this.handleCancelContact = this.handleCancelContact.bind(this);
+    this.handleAddContact = this.handleAddContact.bind(this);
   }
 
   logout(){
     fire.auth().signOut();
   }
+
+  handleAddContact = (contact) => {
+    alert(contact.name);
+    let newContacts = this.state.contacts;
+    newContacts = newContacts.push(contact);
+    alert(newContacts);
+    this.setState({contacts: newContacts, DisplayContacts: true});
+  };
 
   handleNewContact = () => {
     this.setState({DisplayContacts: false});
@@ -33,10 +43,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Button onClick={this.logout} variant="contained" color="primary">
+        <Button onClick={this.logout} variant="contained" color="secondary">
           Logout
         </Button>
-        {this.state.DisplayContacts ? (<DisplayContacts onNewContact={this.handleNewContact}/>) : (<NewContact onCancelContact={this.handleCancelContact}/>)}
+        {this.state.DisplayContacts ? (<DisplayContacts contacts={this.state.contacts} onNewContact={this.handleNewContact}/>) : (<NewContact onAddContact={this.handleAddContact} onCancelContact={this.handleCancelContact}/>)}
       </div>
     );
   }

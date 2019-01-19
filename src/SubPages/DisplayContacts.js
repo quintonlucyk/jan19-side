@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import firebase from "firebase";
 import fire from '../config/Fire';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from '@material-ui/core/Button';
 
 class DisplayContacts extends Component {
   constructor(props){
@@ -14,9 +15,20 @@ class DisplayContacts extends Component {
   };
 
   render() {
+    let contacts = this.props.contacts.map((contact) => {
+      return (
+      <div>
+        contact.name
+      </div>
+      );
+    });
     return (
       <div>
-        <FontAwesomeIcon icon="plus-square" onClick={this.NewContact} />
+        <Button onClick={this.NewContact} variant="contained" color="primary">
+          <FontAwesomeIcon icon="plus-square" />
+          <label>Create contact</label>
+          {contacts}
+        </Button>
       </div>
     );
   }

@@ -17,6 +17,7 @@ class NewContact extends Component {
       email: "",
       notes: "",
     };
+    this.handleAddition = this.handleAddition.bind(this);
     //this.emailKeyUp = this.emailKeyUp.bind(this);
   }
 
@@ -24,8 +25,9 @@ class NewContact extends Component {
     this.props.onCancelContact();
   };
 
-  handleAddition = () => {
-
+  handleAddition = (e) => {
+    e.preventDefault();
+    this.props.onAddContact(this.state);
   };
 
   nameKeyUp = (e) => {
