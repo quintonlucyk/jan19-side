@@ -25,10 +25,8 @@ class Home extends Component {
   }
 
   handleAddContact = (contact) => {
-    alert(contact.name);
     let newContacts = this.state.contacts;
-    newContacts = newContacts.push(contact);
-    alert(newContacts);
+    newContacts.push(contact);
     this.setState({contacts: newContacts, DisplayContacts: true});
   };
 
