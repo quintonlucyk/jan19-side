@@ -24,14 +24,7 @@ class DisplayContacts extends Component {
         </Button>
         {this.props.contacts.map(contact_data => {
           return (
-          <React.Fragment>
-          <DisplayContact
-            contactPhoneNumber={contact_data.phoneNumber}
-            contactEmail={contact_data.email}
-            contactName={contact_data.name}
-            contactNotes={contact_data.notes} />
-          {contact_data.name}
-          </React.Fragment>
+            <DisplayContact contact={contact_data} />
           );
         })}
       </div>

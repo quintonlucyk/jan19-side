@@ -15,7 +15,7 @@ class DisplayContact extends Component {
   render() {
     return (
       <div className="contact">
-        {this.props.contactName}
+        {this.props.contact.name}
       </div>
     );
   }
